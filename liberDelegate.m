@@ -3,7 +3,6 @@
 //  liberdoc
 //
 //  Created by Sergio De Simone on 2/15/10.
-//  Copyright 2010 HP Spain. All rights reserved.
 //
 
 #import "liberDelegate.h"
