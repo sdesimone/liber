@@ -12,6 +12,15 @@
 
 @implementation LiberManagedObject 
 
+@dynamic author;
+@dynamic keys;
+@dynamic summary;
+@dynamic title;
+@dynamic date;
+@dynamic publisher;
+@dynamic id;
+@dynamic notes;
+
 - (NSNumber *)newLiberID
 {
 	long currentLiberID = 0;
@@ -52,6 +61,7 @@
 	[self setValue:[self newLiberID] forKey:@"id"];
 }
 
+/*
 - (NSString *)author 
 {
     NSString * tmpValue;
@@ -124,9 +134,9 @@
     [self didChangeValueForKey:@"id"];
 }
 
-- (NSString *)notes 
+- (NSData*)notes 
 {
-    NSString * tmpValue;
+    NSData* tmpValue;
     
     [self willAccessValueForKey:@"notes"];
     tmpValue = [self primitiveValueForKey:@"notes"];
@@ -135,7 +145,17 @@
     return tmpValue;
 }
 
-- (void)setNotes:(NSString *)value 
+- (void)setNotes:(NSString*)value 
+{
+    NSData* tmpValue;
+    tmpValue = [[NSData alloc] initWithData:[value dataUsingEncoding:NSASCIIStringEncoding]];
+
+    [self willChangeValueForKey:@"notes"];
+    [self setPrimitiveValue:value forKey:@"notes"];
+    [self didChangeValueForKey:@"notes"];
+}
+
+- (void)setNotes:(NSData*)value 
 {
     [self willChangeValueForKey:@"notes"];
     [self setPrimitiveValue:value forKey:@"notes"];
@@ -195,6 +215,7 @@
     [self setPrimitiveValue:value forKey:@"publisher"];
     [self didChangeValueForKey:@"publisher"];
 }
+*/
 
 - (NSString *)printRepresentation 
 {

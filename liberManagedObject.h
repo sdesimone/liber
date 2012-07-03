@@ -8,14 +8,22 @@
 
 #import <CoreData/CoreData.h>
 
-
 @interface LiberManagedObject :  NSManagedObject  
 {
 }
 
 - (void) awakeFromInsert;
 
-- (NSString *)author;
+@property (nonatomic, retain) NSString* author;
+@property (nonatomic, retain) NSString* keys;
+@property (nonatomic, retain) NSString* summary;
+@property (nonatomic, retain) NSString* title;
+@property (nonatomic, retain) NSString* date;
+@property (nonatomic, retain) NSString* publisher;
+@property (nonatomic, retain) NSNumber* id;
+@property (nonatomic, retain) NSString* notes;
+
+/*- (NSString *)author;
 - (void)setAuthor:(NSString *)value;
 
 - (NSString *)keys;
@@ -27,8 +35,12 @@
 - (NSNumber *)id;
 - (void)setId:(NSNumber *)value;
 
-- (NSString *)notes;
-- (void)setNotes:(NSString *)value;
+- (NSData*)notes;
+- (void)setNotes:(NSData*)value;
+//- (void)setNotes:(NSString*)value;
+
+//- (NSData*)notesFromString;
+//- (void)setNotes:(NSString *)value;
 
 - (NSString *)title;
 - (void)setTitle:(NSString *)value;
@@ -38,6 +50,7 @@
 
 - (NSString *)publisher;
 - (void)setPublisher:(NSString *)value;
+*/
 
 - (NSString *)printRepresentation;
 
