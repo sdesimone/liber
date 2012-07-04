@@ -3,6 +3,7 @@
 //  liberdoc
 //
 //  Created by Sergio De Simone on 2/9/10.
+//  Copyright 2010 HP Spain. All rights reserved.
 //
 
 #import "liberDocument.h"

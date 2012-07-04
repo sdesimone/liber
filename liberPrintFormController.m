@@ -29,14 +29,21 @@
 {
 	[_printDataSource removeAllObjects];
 	NSView* formView = (listFlag)?_listView:[self view];
-	NSRect optimumFrame = {[formView bounds].origin,
-							{[pInfo paperSize].width,
-							[pInfo paperSize].height / floor([pInfo paperSize].height/[formView bounds].size.height)}};
-	[formView setFrame:optimumFrame];
+	NSSize optSize = [pInfo paperSize];
+//	float c = [[[pInfo dictionary] objectForKey:NSPrintBottomMargin] floatValue] +
+		[[[pInfo dictionary] objectForKey:NSPrintTopMargin] floatValue];
+//	optSize.height = optSize.height - c;
+	float scale = [[[pInfo dictionary] objectForKey:NSPrintScalingFactor] floatValue];
+    optSize.height /= scale;
+	if (optSize.height > [formView frame].size.height)
+		optSize.height = optSize.height/floor(optSize.height/[formView frame].size.height)-1;
+	else
+		optSize.height = [formView frame].size.height-1;
+	[formView setFrameSize:optSize];
 	for (LiberManagedObject* mob in [_arrayController selectedObjects]) {
 		[self setMob:mob];
 		NSImage *image = [[NSImage alloc] init];
-		NSData *data = [formView dataWithPDFInsideRect:[formView bounds]];
+		NSData *data = [formView dataWithPDFInsideRect:[formView frame]];
 		[image addRepresentation:[NSPDFImageRep imageRepWithData:data]];
 		[_printDataSource addObject:image];
 		[image release];
@@ -57,7 +64,7 @@
 	return [_printDataSource objectAtIndex:row];
 }
 
-- (float)tableView:(NSTableView*)tableView heightOfRow:(int)row
+- (CGFloat)tableView:(NSTableView*)tableView heightOfRow:(NSInteger)row
 {
 	return [[_printDataSource objectAtIndex:row] size].height;
 }
