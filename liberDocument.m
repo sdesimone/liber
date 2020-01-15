@@ -275,11 +275,19 @@
                        error:error];
 
 	if (error) {
+        NSString* errorMessage = @"";
 		NSEnumerator* enumerator = [[*error userInfo] keyEnumerator];
 		id e = nil;
 			while ((e = [enumerator nextObject])) {
-			NSLog(@"error: (%d/%@) %@\n", [*error code], [*error domain], [[*error userInfo] valueForKey:e]);
+                NSLog(@"error: %@\n", *error);
+                errorMessage = [errorMessage stringByAppendingPathComponent:[e description]];
 		}
+        NSAlert* alert = [[NSAlert alloc] init];
+        [alert setMessageText:@"Error while saving"];
+        [alert setInformativeText:errorMessage];
+        [alert addButtonWithTitle:@"Ok"];
+        [alert runModal];
+
 	}
 	return b;
 }

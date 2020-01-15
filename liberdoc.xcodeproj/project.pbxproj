@@ -33,7 +33,6 @@
 		491B3AE4118975EE007819A5 /* 11to12.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 491B3AE3118975EE007819A5 /* 11to12.xcmappingmodel */; };
 		491B3AEA11897763007819A5 /* libroMigrationPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = 491B3AE911897763007819A5 /* libroMigrationPolicy.m */; };
 		491B3BCA118D8B4D007819A5 /* NSData+AESExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 491B3BC9118D8B4D007819A5 /* NSData+AESExt.m */; };
-		491B3BD6118D8D0A007819A5 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 491B3BD5118D8D0A007819A5 /* libz.dylib */; };
 		491B3BDE118D8D9D007819A5 /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 491B3BDD118D8D9D007819A5 /* libcrypto.dylib */; };
 		4943E1BE10F3FF5900E0C4E9 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 4943E1B810F3FF5900E0C4E9 /* add.png */; };
 		4943E1BF10F3FF5900E0C4E9 /* button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4943E1B910F3FF5900E0C4E9 /* button.png */; };
@@ -146,7 +145,6 @@
 			files = (
 				4910D6281129D23300CB6DEC /* Sparkle.framework in Frameworks */,
 				775DFF38067A968500C5B868 /* Cocoa.framework in Frameworks */,
-				491B3BD6118D8D0A007819A5 /* libz.dylib in Frameworks */,
 				491B3BDE118D8D9D007819A5 /* libcrypto.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +334,7 @@
 			isa = PBXProject;
 			buildConfigurationList = 26FC0AA90875C8B900E6366F /* Build configuration list for PBXProject "liberdoc" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
